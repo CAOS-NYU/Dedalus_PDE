@@ -4,5 +4,5 @@ This repository containsnumerical solvers for various partial differential equat
 
 On the to-do list:
 * Moist Rayleigh-Benrad convection
-* 2 layer shallow water on a speher
+* 2 layer shallow water on a sphere
 * 2 layer quasi-geostrophic jet

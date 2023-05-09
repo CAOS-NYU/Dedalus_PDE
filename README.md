@@ -1,4 +1,4 @@
-# Deaalus/PDE
+# Dedalus/PDE
 
 This repository containsnumerical solvers for various partial differential equations using the [Dedalus](https://dedalus-project.org/) package. 
 

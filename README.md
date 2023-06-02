@@ -3,6 +3,6 @@
 This repository containsnumerical solvers for various partial differential equations using the [Dedalus](https://dedalus-project.org/) package. 
 
 On the to-do list:
-* Moist Rayleigh-Benrad convection
+* Moist Rayleigh-Benrad convection (MRBC)
 * 2 layer shallow water on a sphere
-* 2 layer quasi-geostrophic jet
+* Barotropic flow on a sphere (BARO_SPH)

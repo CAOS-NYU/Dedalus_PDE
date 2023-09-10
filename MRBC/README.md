@@ -17,5 +17,5 @@ While other choices for the boundary conditions are possible, these  correspond 
 
 The repository here contains four pieces of code:
 - `MRBC_2D.py` and `MRBC_3D.py` implement the MRBC problem in Dedalus. 
-- `launcher.py` is a wrapper that organizes the computation and submits it to the queue.
-- `Read_MRC.ipyn` is a short Jupyer Notebook that reads the output file
+- `launch_MRBC_2D.ipynb` and `launch_MRBC_3D.ipynb` are Jupyter Notebooks that organize the computate directory and create the slurm scripts.
+- `Read_MRBC_2D.ipynb` and `Read_MRBC_3D.ipynb` are short Jupyer Notebooks that read the output files

@@ -179,15 +179,15 @@ d['g'] += D0 + DH * z # Add linear background
 d['g'] += 0.01 * z * (Lz - z) * np.sin(2.0 * np.pi * x / Lx)
 
 # Analysis
-snapshots = solver.evaluator.add_file_handler(output_dir + '/snapshots', sim_dt=1.0, max_writes=20)
+snapshots = solver.evaluator.add_file_handler(output_dir + '/snapshots', sim_dt=1.0, max_writes=1)
 snapshots.add_task(m, name='moist buoyancy')
 snapshots.add_task(d, name='dry buoyancy')
 snapshots.add_task( u, name='velocity')
 
 analysis = solver.evaluator.add_file_handler(output_dir + '/analysis', sim_dt=0.1, max_writes=1000)
-analysis.add_task(d3.Average(u_z * m,'x'),layout='g', name='moist buoyancy flux')
-analysis.add_task(d3.Average(u_z * d,'x'),layout='g', name='dry buoyancy flux')
-analysis.add_task(d3.Average(u_z * (d + b_corr),'x'),layout='g', name='buoyancy flux')
+analysis.add_task(d3.Average(u_z * m,('x','y')),layout='g', name='moist buoyancy flux')
+analysis.add_task(d3.Average(u_z * d,('x','y')),layout='g', name='dry buoyancy flux')
+analysis.add_task(d3.Average(u_z * (d + b_corr),('x','y')),layout='g', name='buoyancy flux')
 
 
 # CFL

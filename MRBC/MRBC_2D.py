@@ -171,12 +171,12 @@ d['g'] += D0 + DH * z # Add linear background
 d['g'] += 0.01 * z * (Lz - z) * np.sin(2.0 * np.pi * x / Lx)
 
 # Analysis
-snapshots = solver.evaluator.add_file_handler(output_dir + '/snapshots', sim_dt=1.0, max_writes=20)
+snapshots = solver.evaluator.add_file_handler( './snapshots', sim_dt=1.0, max_writes=20)
 snapshots.add_task(m, name='moist buoyancy')
 snapshots.add_task(d, name='dry buoyancy')
 snapshots.add_task( u, name='velocity')
 
-analysis = solver.evaluator.add_file_handler(output_dir + '/analysis', sim_dt=0.1, max_writes=1000)
+analysis = solver.evaluator.add_file_handler('./analysis', sim_dt=0.1, max_writes=1000)
 analysis.add_task(d3.Average(u @ ez * m,'x'),layout='g', name='moist buoyancy flux')
 analysis.add_task(d3.Average(u @ ez * d,'x'),layout='g', name='dry buoyancy flux')
 analysis.add_task(d3.Average(u @ ez * (d + b_corr),'x'),layout='g', name='buoyancy flux')
@@ -185,7 +185,7 @@ analysis.add_task(d3.Average(u @ ez * (d + b_corr),'x'),layout='g', name='buoyan
 # CFL
 CFL = d3.CFL(solver, initial_dt=initial_timestep, cadence=1, safety=0.3, threshold=0.05,
              max_change=1.5, min_change=0.25, max_dt=max_timestep)
-CFL.add_velocity(u+ubar)
+CFL.add_velocity(u)
 
 # Flow properties
 flow = d3.GlobalFlowProperty(solver, cadence=10)
